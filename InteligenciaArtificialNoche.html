@@ -13,6 +13,28 @@
         p { margin: 0.5em 0; }
         ul { margin: 1em 0; padding-left: 1.5em; }
         footer p { font-size: 0.9em; }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -57,8 +79,88 @@
         </p>
     </section>
     
+    <section>
+        <h2>Resumen del Código punto 4 </h2>
+        <ol>
+            <li><strong>Importaciones de bibliotecas:</strong><br>
+                <code>import tensorflow as tf</code><br>
+                <code>import numpy as np</code><br>
+                Se importan las bibliotecas TensorFlow y NumPy. TensorFlow es popular para el aprendizaje automático y la creación de redes neuronales, mientras que NumPy se utiliza para trabajar con arreglos y cálculos numéricos.
+            </li>
+            <li><strong>Creación de arreglos:</strong><br>
+                <code>celsius = np.array([-40, -10, 0, 8, 15, 22, 38], dtype=float)</code><br>
+                <code>fahrenheit = np.array([-40, 14, 32, 59, 72, 100], dtype=float)</code><br>
+                Se crean dos arreglos de NumPy: celsius (temperaturas en Celsius) y fahrenheit (temperaturas en Fahrenheit). El parámetro <code>dtype=float</code> asegura que los elementos sean flotantes.
+            </li>
+            <li><strong>Definición de una capa de la red neuronal:</strong><br>
+                <code>capa = tf.keras.layers.Dense(units=1, input_shape=[1])</code><br>
+                Se define una capa densa con una sola neurona de salida. <code>input_shape=[1]</code> especifica que la entrada será un solo valor.
+            </li>
+            <li><strong>Creación del modelo:</strong><br>
+                <code>modelo = tf.keras.Sequential([capa])</code><br>
+                Se crea un modelo secuencial que contiene la capa definida anteriormente.
+            </li>
+            <li><strong>Compilación del modelo:</strong><br>
+                <code>modelo.compile(optimizer=tf.keras.optimizers.Adam(0.1), loss='mean_squared_error')</code><br>
+                Se compila el modelo con el optimizador Adam y se establece la función de pérdida como error cuadrático medio (MSE).
+            </li>
+            <li><strong>Inicio del entrenamiento:</strong><br>
+                <code>print("Comenzando entrenamiento...")</code><br>
+                Se imprime un mensaje indicando que el entrenamiento está a punto de comenzar.
+            </li>
+            <li><strong>Entrenamiento del modelo:</strong><br>
+                <code>historial = modelo.fit(celsius, fahrenheit, epochs=1000, verbose=False)</code><br>
+                El modelo se entrena durante 1000 épocas con los datos de celsius y fahrenheit.
+            </li>
+            <li><strong>Finalización del entrenamiento:</strong><br>
+                <code>print("Modelo entrenado!")</code><br>
+                Se imprime un mensaje indicando que el modelo ha terminado de entrenarse.
+            </li>
+            <li><strong>Predicción:</strong><br>
+                <code>resultado = modelo.predict([100.0])</code><br>
+                Se realiza una predicción para 100 grados Celsius, y el resultado se almacena en la variable resultado.
+            </li>
+            <li><strong>Impresión del resultado:</strong><br>
+                <code>print("El resultado es " + str(resultado) + " fahrenheit!")</code><br>
+                Se imprime el resultado de la predicción.
+            </li>
+        </ol>
+        <p>En resumen, este fragmento de código establece un modelo de red neuronal simple que predice temperaturas en Fahrenheit a partir de temperaturas en Celsius y muestra el resultado en la consola.</p>
+    </section>
+
+    <section>
+        <h2>Punto 3: Tabla de Laberintos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>DFS</th>
+                    <th>BFS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Laberinto 1</td>
+                    <td>425</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Laberinto 2</td>
+                    <td>425</td>
+                    <td>2062</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="image-container">
+            <img src="ima3.JPEG" alt="Descripción de la imagen 1">
+            <img src="m2.PNG" alt="Descripción de la imagen 2">
+            <img src="maze.PNG" alt="Descripción de la imagen 2">
+        </div>
+    </section>
+
     <footer>
-        <p><a></a>.</p>
+        <p>Derechos reservados © 2024</p>
     </footer>
 </body>
 </html>
